@@ -43,10 +43,10 @@ public class Activity_Login extends AppCompatActivity {
         textView15.setMovementMethod(LinkMovementMethod.getInstance()); // Enables click event
     }
 
-    // for partially clickable, underlined, different color text in a string, in this case: "Are you a new user? >>Register<<"
+    // for partially clickable, underlined, different color text in a string, in this case: "Are you a new user? >>Register now!<<"
     @NonNull
     private SpannableString getSpannableString() {
-        SpannableString spannable = new SpannableString("Are you a new user? Register");
+        SpannableString spannable = new SpannableString("Are you a new user? Register now!");
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View widget) {
