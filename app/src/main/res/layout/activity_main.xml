@@ -9,15 +9,17 @@
 
     <LinearLayout
         android:id="@+id/mainLayout"
-        android:layout_width="420dp"
-        android:layout_height="912dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintVertical_bias="0.333" >
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/setWallpaperButton"
@@ -42,4 +44,15 @@
         app:layout_constraintTop_toBottomOf="@+id/setWallpaperButton"
         app:layout_constraintVertical_bias="0.038" />
 
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="100dp"
+        android:layout_height="53dp"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="@+id/mainLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintVertical_bias="0.98"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

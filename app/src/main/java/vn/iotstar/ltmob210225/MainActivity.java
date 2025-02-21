@@ -1,11 +1,10 @@
 package vn.iotstar.ltmob210225;
 
 import android.app.WallpaperManager;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Layout;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -17,9 +16,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
-
 import java.io.IOException;
 import java.util.Random;
 
@@ -27,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private LinearLayout mainLayout;
     private Button setWallpaperButton;
+    private Button btn_next;
     private Switch swi_wallpaper;
     private int[] wallpapers = {R.drawable.wallpaper1, R.drawable.wallpaper2, R.drawable.wallpaper3}; // Add your images here
     private int currentWallpaperResId;
@@ -43,15 +40,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mainLayout = findViewById(R.id.mainLayout);
-        setWallpaperButton = findViewById(R.id.setWallpaperButton);
-        swi_wallpaper = findViewById(R.id.swi_wallpaper);
 
         // Load a random wallpaper
         loadRandomWallpaper();
 
         // Set wallpaper on button click
+        setWallpaperButton = findViewById(R.id.setWallpaperButton);
         setWallpaperButton.setOnClickListener(view -> setAsWallpaper(currentWallpaperResId));
+
         // Set switch listener
+        swi_wallpaper = findViewById(R.id.swi_wallpaper);
         swi_wallpaper.setOnCheckedChangeListener((buttonView, isChecked) -> {
             int currentResId = 0;
             if (isChecked) {
@@ -60,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 mainLayout.setBackgroundResource(wallpapers[currentResId]); // Show current wallpaper
             }
+        });
+
+        // button next (MainActivity2)
+        btn_next = findViewById(R.id.btn_next);
+        btn_next.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intent);
         });
     }
 
