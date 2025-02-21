@@ -5,8 +5,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Layout;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private LinearLayout mainLayout;
     private Button setWallpaperButton;
+    private Switch swi_wallpaper;
     private int[] wallpapers = {R.drawable.wallpaper1, R.drawable.wallpaper2, R.drawable.wallpaper3}; // Add your images here
     private int currentWallpaperResId;
 
@@ -41,12 +44,23 @@ public class MainActivity extends AppCompatActivity {
 
         mainLayout = findViewById(R.id.mainLayout);
         setWallpaperButton = findViewById(R.id.setWallpaperButton);
+        swi_wallpaper = findViewById(R.id.swi_wallpaper);
 
         // Load a random wallpaper
         loadRandomWallpaper();
 
         // Set wallpaper on button click
         setWallpaperButton.setOnClickListener(view -> setAsWallpaper(currentWallpaperResId));
+        // Set switch listener
+        swi_wallpaper.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            int currentResId = 0;
+            if (isChecked) {
+                currentResId = currentWallpaperResId;
+                loadRandomWallpaper(); // Show random wallpaper
+            } else {
+                mainLayout.setBackgroundResource(wallpapers[currentResId]); // Show current wallpaper
+            }
+        });
     }
 
     private void loadRandomWallpaper() {
