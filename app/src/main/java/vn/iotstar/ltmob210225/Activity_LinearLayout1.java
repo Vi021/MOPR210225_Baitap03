@@ -10,7 +10,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity2 extends AppCompatActivity {
+public class Activity_LinearLayout1 extends AppCompatActivity {
 
     private Button btn_next;
 
@@ -18,16 +18,17 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity2);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main2), (v, insets) -> {
+        setContentView(R.layout.activity_linear1);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.act_linear1), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
+        // button next (Activity_LinearLayout2)
         btn_next = findViewById(R.id.btn_next);
         btn_next.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity2.this, MainAcitivity2_1.class);
+            Intent intent = new Intent(Activity_LinearLayout1.this, Activity_LinearLayout2.class);
             startActivity(intent);
         });
     }

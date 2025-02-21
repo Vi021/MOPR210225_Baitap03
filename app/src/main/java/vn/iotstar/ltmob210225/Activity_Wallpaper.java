@@ -19,7 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 import java.io.IOException;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class Activity_Wallpaper extends AppCompatActivity {
 
     private LinearLayout mainLayout;
     private Button setWallpaperButton;
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        setContentView(R.layout.activity_wallpaper);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.act_wallpaper), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // button next (MainActivity2)
+        // button next (Activity_LinearLayout1)
         btn_next = findViewById(R.id.btn_next);
         btn_next.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            Intent intent = new Intent(Activity_Wallpaper.this, Activity_LinearLayout1.class);
             startActivity(intent);
         });
     }
