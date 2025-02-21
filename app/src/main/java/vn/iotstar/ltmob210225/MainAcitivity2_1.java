@@ -25,10 +25,10 @@ public class MainAcitivity2_1 extends AppCompatActivity {
             return insets;
         });
 
-//        btn_next = findViewById(R.id.btn_next);
-//        btn_next.setOnClickListener(view -> {
-//            Intent intent = new Intent(MainActivity2_1.this, MainAcitivity3.class);
-//            startActivity(intent);
-//        });
+        btn_next = findViewById(R.id.btn_next);
+        btn_next.setOnClickListener(view -> {
+            Intent intent = new Intent(MainAcitivity2_1.this, MainActivity3.class);
+            startActivity(intent);
+        });
     }
 }
